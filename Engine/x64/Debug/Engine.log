@@ -1,0 +1,34 @@
+﻿Build started 26.10.2015 17:20:25.
+     1>Project "D:\Projects\Engine\Engine\Engine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _API_EXPORT /D _WINDLL /D _DEBUG /D _WINDOWS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt Controller\D3D11RenderController.cpp
+         D3D11RenderController.cpp
+     1>d:\projects\engine\engine\controller\d3d11rendercontroller.h(28): warning C4251: 'D3D11RenderController::worldMatrix': struct 'DirectX::XMMATRIX' needs to have dll-interface to be used by clients of class 'D3D11RenderController'
+         c:\program files (x86)\windows kits\8.1\include\um\directxmath.h(393): note: see declaration of 'DirectX::XMMATRIX'
+     1>d:\projects\engine\engine\controller\d3d11rendercontroller.h(29): warning C4251: 'D3D11RenderController::orthoMatrix': struct 'DirectX::XMMATRIX' needs to have dll-interface to be used by clients of class 'D3D11RenderController'
+         c:\program files (x86)\windows kits\8.1\include\um\directxmath.h(393): note: see declaration of 'DirectX::XMMATRIX'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Projects\Engine\x64\Debug\Engine.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\Projects\Engine\x64\Debug\Engine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Projects\Engine\x64\Debug\Engine.lib" /MACHINE:X64 /DLL x64\Debug\AbstractCamera.obj
+         x64\Debug\AbstractWindowController.obj
+         x64\Debug\D3D11Controller.obj
+         x64\Debug\D3D11RenderController.obj
+         x64\Debug\WindowController.obj
+         x64\Debug\DllMain.obj
+         x64\Debug\Frustrum.obj
+         x64\Debug\Light.obj
+         x64\Debug\LightConstantBuffer.obj
+         x64\Debug\MatricesConstantBuffer.obj
+         x64\Debug\AbstractModel.obj
+         x64\Debug\QuadTree.obj
+         x64\Debug\Shader.obj
+         x64\Debug\Terrain.obj
+         x64\Debug\Texture.obj
+         x64\Debug\TexturedTerrain.obj
+         x64\Debug\Timer.obj
+         x64\Debug\WICImagingFactory.obj
+         Engine.vcxproj -> D:\Projects\Engine\x64\Debug\Engine.dll
+     1>Done Building Project "D:\Projects\Engine\Engine\Engine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.27
