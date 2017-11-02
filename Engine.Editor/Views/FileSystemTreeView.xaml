@@ -1,0 +1,33 @@
+﻿<views:AbstractView x:Class="Engine.Editor.Views.FileSystemTreeView"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:viewModels="clr-namespace:Engine.Editor.ViewModels.FileSystemTreeView"
+                    xmlns:views="clr-namespace:Engine.Editor.Views"
+                    x:ClassModifier="internal"
+                    x:TypeArguments="viewModels:FileSystemTreeViewModel">
+    <TreeView VirtualizingPanel.IsVirtualizing="True"
+              VirtualizingPanel.VirtualizationMode="Recycling"
+              ItemsSource="{Binding Path=Model}">
+        <TreeView.Resources>
+            <HierarchicalDataTemplate DataType="{x:Type viewModels:FileSystemElementViewModel}" ItemsSource="{Binding Path=Children}">
+                <StackPanel Margin="0,2" Orientation="Horizontal">
+                    <Image Margin="0,1,0,1"
+                                   VerticalAlignment="Center"
+                                   Source="{Binding Path=ImageSource}"
+                                   Stretch="None" />
+                    <TextBlock Margin="5,0,5,0"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding Path=FileSystemInformation.Name}">
+                    </TextBlock>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </TreeView.Resources>
+        <TreeView.ItemContainerStyle>
+            <Style TargetType="{x:Type TreeViewItem}">
+                <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}" />
+                <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+                <Setter Property="KeyboardNavigation.AcceptsReturn" Value="True" />
+            </Style>
+        </TreeView.ItemContainerStyle>
+    </TreeView>
+</views:AbstractView>

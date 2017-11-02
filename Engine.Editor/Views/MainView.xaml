@@ -1,0 +1,62 @@
+﻿<Window x:Class="Engine.Editor.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Engine.Editor.Controls"
+        xmlns:toolBar="clr-namespace:Engine.Editor.ViewModels.ToolBar"
+        xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:viewModels="clr-namespace:Engine.Editor.ViewModels"
+        Title="Editor"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Menu -->
+        <Menu Grid.Row="0"></Menu>
+
+        <!-- ToolBar tray -->
+        <ToolBarTray Grid.Row="1"
+                     controls:Extension.ItemsSource="{Binding Path=ToolBars}">
+            <ToolBarTray.Resources>
+
+                <!-- ToolBarElementTemplateSelector -->
+                <controls:ToolBarElementTemplateSelector x:Key="{x:Type controls:ToolBarElementTemplateSelector}">
+                    <controls:ToolBarElementTemplateSelector.ButtonTemplate>
+                        <DataTemplate DataType="toolBar:ToolBarButtonViewModel">
+                            <Button Content="{Binding Path=Content}" Command="{Binding Path=Command}"/>
+                        </DataTemplate>
+                    </controls:ToolBarElementTemplateSelector.ButtonTemplate>
+                    <controls:ToolBarElementTemplateSelector.SeparatorTemplate>
+                        <DataTemplate DataType="toolBar:ToolBarSeparatorViewModel">
+                            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        </DataTemplate>
+                    </controls:ToolBarElementTemplateSelector.SeparatorTemplate>
+                </controls:ToolBarElementTemplateSelector>
+
+            </ToolBarTray.Resources>
+        </ToolBarTray>
+
+        <!-- Main content -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".2*"/>
+                <ColumnDefinition Width="3"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="TreeViewRegion" />
+
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+
+            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="MainViewRegion"/>
+        </Grid>
+
+        <!-- StatusBar -->
+        <StatusBar Grid.Row="3"/>
+    </Grid>
+</Window>

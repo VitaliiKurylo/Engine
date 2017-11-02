@@ -1,0 +1,11 @@
+﻿<views:AbstractView x:Class="Engine.Editor.Views.SchemeView"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:viewModels="clr-namespace:Engine.Editor.ViewModels"
+                    xmlns:views="clr-namespace:Engine.Editor.Views"
+                    x:ClassModifier="internal"
+                    x:TypeArguments="viewModels:SchemeViewModel">
+    <Grid>
+
+    </Grid>
+</views:AbstractView>
